@@ -47,14 +47,4 @@ for city in city_url :
 			
 		df.to_csv('C:\SNIGDHA\PESU\Summer 2019\PESU-IO-SUMMER\FINAL ASSIGNMENT\\'+ values[1] + '.csv',index = False)
 			
-		  
-	
-
-
-
-
-
-
-
-
-
+		
