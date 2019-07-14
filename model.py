@@ -32,7 +32,7 @@ selector.fit(X, y)
 X_new = selector.transform(X)
 top3 = X.columns[selector.get_support(indices=True)]
 
-# model
+# MODEL
 X = df[['Humidity3pm','Rainfall','RainToday']]
 y = df[['RainTomorrow']]
 
