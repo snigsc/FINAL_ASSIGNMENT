@@ -1,4 +1,5 @@
 # Accuracy : 0.834049  (83.4%)
+# Model starts from line 36
 
 import pandas as pd 
 
