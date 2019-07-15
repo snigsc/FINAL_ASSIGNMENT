@@ -1,5 +1,5 @@
 # Accuracy : 0.834049  (83.4%)
-# Model starts from line 36
+# Model starts from line 39
 
 import pandas as pd 
 
@@ -12,7 +12,7 @@ df = df.drop(columns=['Date','Location','Sunshine','Evaporation','Cloud3pm','Clo
 # Drop all the blank data entries
 df = df.dropna(how='any')
 
-# No rain = 0 , Rainfall = 1
+# Replace rainfall by integral values
 df['RainToday'].replace({'No': 0, 'Yes': 1},inplace = True)
 df['RainTomorrow'].replace({'No': 0, 'Yes': 1},inplace = True)
 
@@ -33,7 +33,10 @@ selector.fit(X, y)
 X_new = selector.transform(X)
 top3 = X.columns[selector.get_support(indices=True)]
 
-# MODEL
+# Shuffle the dataframe in random order
+df = df.sample(frac=1)
+
+# model
 X = df[['Humidity3pm','Rainfall','RainToday']]
 y = df[['RainTomorrow']]
 
@@ -47,4 +50,3 @@ logreg.fit(X_train,y_train)
 y_pred = logreg.predict(X_test)
 score = accuracy_score(y_test,y_pred)
 print('Accuracy :',score)
-
