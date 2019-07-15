@@ -38,5 +38,5 @@ for city in city_url :
 		values = [td.text for td in td]
 		df = df.append(pd.Series(values,index=columns),ignore_index=True)
 			
-		df.to_csv('FINAL_ASSIGNMENT/dataset/cities csv/'+ values[1] + '.csv',index = False)		
+		df.to_csv('dataset/cities csv/'+ values[1] + '.csv',index = False)		
 		
