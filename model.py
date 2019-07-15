@@ -3,7 +3,7 @@
 
 import pandas as pd 
 
-df = pd.read_csv('C:\SNIGDHA\PESU\Summer 2019\PESU-IO-SUMMER\FINAL ASSIGNMENT\Cities CSVs\ALL.csv')
+df = pd.read_csv('dataset/cities csv/ALL.csv')
 
 df.count().sort_values()
 df = df.drop(columns=['Date','Location','Sunshine','Evaporation','Cloud3pm','Cloud9am','RISK_MM'],axis=1)  
