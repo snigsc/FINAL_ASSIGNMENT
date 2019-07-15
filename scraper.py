@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 12 01:12:08 2019
-
-@author: SNIGDHA S
-"""
-
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import lxml
@@ -45,6 +38,5 @@ for city in city_url :
 		values = [td.text for td in td]
 		df = df.append(pd.Series(values,index=columns),ignore_index=True)
 			
-		df.to_csv('C:\SNIGDHA\PESU\Summer 2019\PESU-IO-SUMMER\FINAL ASSIGNMENT\\'+ values[1] + '.csv',index = False)
-			
+		df.to_csv('FINAL_ASSIGNMENT/dataset/cities csv/'+ values[1] + '.csv',index = False)		
 		
