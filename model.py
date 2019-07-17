@@ -1,4 +1,4 @@
-# Accuracy : 0.834049  (83.4%)
+# Accuracy : 0.835377  (83.53%)
 # Model starts from line 39
 
 import pandas as pd 
@@ -10,7 +10,7 @@ df = df.drop(columns=['Date','Location','Sunshine','Evaporation','Cloud3pm','Clo
 # These columns have very less data and can be ignored
 
 # Drop all the blank data entries
-df = df.dropna(how='any')
+df = df.dropna()
 
 # Replace rainfall by integral values
 df['RainToday'].replace({'No': 0, 'Yes': 1},inplace = True)
