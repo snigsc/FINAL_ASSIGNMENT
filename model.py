@@ -1,5 +1,5 @@
 # Accuracy : 0.8373699  (83.7%)
-# Model starts from line 39
+# Model starts from line 30
 
 import pandas as pd 
 
@@ -24,15 +24,6 @@ scaler = preprocessing.MinMaxScaler()
 scaler.fit(df)
 df = pd.DataFrame(scaler.transform(df), index=df.index, columns=df.columns)
 
-# Best Feature Selection
-from sklearn.feature_selection import SelectKBest, chi2
-X = df.loc[:,df.columns!='RainTomorrow']
-y = df[['RainTomorrow']]
-selector = SelectKBest(chi2, k=3)
-selector.fit(X, y)
-X_new = selector.transform(X)
-top3 = X.columns[selector.get_support(indices=True)]
-
 # Shuffle the dataframe in random order
 df = df.sample(frac=1)
 
@@ -48,5 +39,5 @@ X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.20)
 logreg = LogisticRegression(random_state=0)
 logreg.fit(X_train,y_train)
 y_pred = logreg.predict(X_test)
-score = accuracy_score(y_test,y_pred)
-print('Accuracy :',score)
+accuracy = accuracy_score(y_test,y_pred)
+print('Accuracy :',accuracy)
